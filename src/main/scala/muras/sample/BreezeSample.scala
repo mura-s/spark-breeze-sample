@@ -1,4 +1,4 @@
-package sample
+package muras.sample
 
 import breeze.linalg.{DenseVector, SparseVector}
 import breeze.numerics.sigmoid

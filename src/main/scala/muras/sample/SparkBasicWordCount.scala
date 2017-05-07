@@ -1,4 +1,4 @@
-package sample
+package muras.sample
 
 import org.apache.spark.{SparkConf, SparkContext}
 
@@ -8,7 +8,7 @@ import org.apache.spark.{SparkConf, SparkContext}
   *
   * 実行方法:
   *   sbt assembly
-  *   spark-submit --class sample.SparkBasicWordCount target/scala-2.11/spark-breeze-sample-assembly-1.0.jar
+  *   spark-submit --class muras.sample.SparkBasicWordCount target/scala-2.11/spark-breeze-sample-assembly-1.0.jar
   */
 object SparkBasicWordCount extends App {
   val conf = new SparkConf().setAppName("BasicWordCount")

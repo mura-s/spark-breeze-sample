@@ -1,4 +1,4 @@
-package model
+package muras.model
 
 case class TrainData(
   label: Double,      // 正解ラベル (0.0: クリックしていない, 1.0: クリックした)

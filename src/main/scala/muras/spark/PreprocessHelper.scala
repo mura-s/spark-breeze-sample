@@ -1,11 +1,11 @@
-package spark
+package muras.spark
 
 import org.apache.spark.ml.linalg.Vectors
 import org.apache.spark.sql.expressions.UserDefinedFunction
 import org.apache.spark.sql.functions.udf
-import util.{FeatureHashingUtil, OneHotEncodeUtil}
+import muras.util.{FeatureHashingUtil, OneHotEncodeUtil}
 
-object UserDefinedFunctions {
+object PreprocessHelper {
 
   val oneHotEncode: UserDefinedFunction = udf { (value: Int, numFeatures: Int) =>
     OneHotEncodeUtil.indexOf(value, numFeatures) match {

@@ -1,4 +1,4 @@
-package model
+package muras.model
 
 // 各フィールドのの説明は TrainData.scala を参照
 case class TestData(

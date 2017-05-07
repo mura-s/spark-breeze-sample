@@ -1,6 +1,6 @@
-package breeze
+package muras.breeze
 
-object BreezeMain {
+object BreezeLr {
 
   def main(args: Array[String]): Unit = {
 

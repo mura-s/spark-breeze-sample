@@ -1,13 +1,13 @@
-package spark
+package muras.spark
 
 import org.apache.spark.sql.SparkSession
 
-object SparkMain {
+object SparkLr {
 
   def main(args: Array[String]): Unit = {
     val spark = SparkSession
       .builder()
-      .appName("Basic LrHashAndOnehotEnc")
+      .appName("SparkLr")
       .getOrCreate()
 
     spark.sparkContext.setLogLevel("WARN")
