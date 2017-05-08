@@ -1,7 +1,7 @@
 package muras.breeze
 
 import breeze.linalg.SparseVector
-import muras.share.util.{FeatureHashingUtil, OneHotEncodeUtil}
+import muras.share.{FeatureHashingUtil, OneHotEncodeUtil}
 
 object PreprocessHelper {
 

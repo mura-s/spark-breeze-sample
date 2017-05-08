@@ -1,4 +1,4 @@
-package muras.share.util
+package muras.share
 
 import scala.util.hashing.MurmurHash3
 

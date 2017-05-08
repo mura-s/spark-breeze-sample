@@ -2,7 +2,7 @@ package muras.spark
 
 import java.io.PrintWriter
 
-import muras.share.model.{TestData, TrainData}
+import muras.share.{TestData, TrainData}
 import muras.spark.PreprocessHelper._
 import org.apache.spark.ml.Pipeline
 import org.apache.spark.ml.classification.{LogisticRegression, LogisticRegressionModel}

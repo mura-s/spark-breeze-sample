@@ -1,9 +1,9 @@
 package muras.spark
 
+import muras.share.{FeatureHashingUtil, OneHotEncodeUtil}
 import org.apache.spark.ml.linalg.Vectors
 import org.apache.spark.sql.expressions.UserDefinedFunction
 import org.apache.spark.sql.functions.udf
-import muras.share.util.{FeatureHashingUtil, OneHotEncodeUtil}
 
 object PreprocessHelper {
 

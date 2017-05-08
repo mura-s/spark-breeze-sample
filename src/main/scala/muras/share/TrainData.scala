@@ -1,4 +1,4 @@
-package muras.share.model
+package muras.share
 
 /**
   * 訓練データ

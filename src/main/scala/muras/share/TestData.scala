@@ -1,4 +1,4 @@
-package muras.share.model
+package muras.share
 
 // 各フィールドの説明は TrainData.scala を参照
 case class TestData(
