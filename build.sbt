@@ -11,3 +11,6 @@ libraryDependencies ++= Seq(
   "com.databricks"   %% "spark-csv"   % "1.5.0",
   "org.scalanlp"     %% "breeze"      % "0.13.1"
 )
+
+// sbt-assemblyでtest skip
+test in assembly := {}

@@ -1,5 +1,8 @@
-package muras.model
+package muras.share.model
 
+/**
+  * 訓練データ
+  */
 case class TrainData(
   label: Double,      // 正解ラベル (0.0: クリックしていない, 1.0: クリックした)
   uid: String,        // cookie等のuid
@@ -13,3 +16,4 @@ case class TrainData(
   n1: Double,         // anonymized numerical variable1
   n2: Double          // anonymized numerical variable2
 )
+

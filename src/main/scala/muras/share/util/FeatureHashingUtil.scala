@@ -1,10 +1,10 @@
-package muras.util
+package muras.share.util
 
 import scala.util.hashing.MurmurHash3
 
 object FeatureHashingUtil {
 
-  val HashSize: Int = Math.pow(2.0, 15.0).toInt
+  val hashSize: Int = Math.pow(2.0, 15.0).toInt
 
   def indexOf(value: String): Int = {
     def nonNegativeMod(v: Int, mod: Int): Int = {
@@ -13,7 +13,7 @@ object FeatureHashingUtil {
     }
 
     val hash = MurmurHash3.stringHash(value)
-    nonNegativeMod(hash, HashSize)
+    nonNegativeMod(hash, hashSize)
   }
 
 }

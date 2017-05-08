@@ -1,7 +1,7 @@
 package muras.breeze
 
 import breeze.linalg.SparseVector
-import muras.util.{FeatureHashingUtil, OneHotEncodeUtil}
+import muras.share.util.{FeatureHashingUtil, OneHotEncodeUtil}
 
 object PreprocessHelper {
 
@@ -14,7 +14,7 @@ object PreprocessHelper {
 
   def featureHashing(value: String): SparseVector[Double] = {
     val index = FeatureHashingUtil.indexOf(value)
-    SparseVector(FeatureHashingUtil.HashSize)((index, 1.0))
+    SparseVector(FeatureHashingUtil.hashSize)((index, 1.0))
   }
 
 }

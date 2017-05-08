@@ -3,7 +3,7 @@ package muras.spark
 import org.apache.spark.ml.linalg.Vectors
 import org.apache.spark.sql.expressions.UserDefinedFunction
 import org.apache.spark.sql.functions.udf
-import muras.util.{FeatureHashingUtil, OneHotEncodeUtil}
+import muras.share.util.{FeatureHashingUtil, OneHotEncodeUtil}
 
 object PreprocessHelper {
 
@@ -16,6 +16,6 @@ object PreprocessHelper {
 
   val featureHashing: UserDefinedFunction = udf { value: String =>
     val index = FeatureHashingUtil.indexOf(value)
-    Vectors.sparse(FeatureHashingUtil.HashSize, Array(index), Array(1.0))
+    Vectors.sparse(FeatureHashingUtil.hashSize, Array(index), Array(1.0))
   }
 }

@@ -1,4 +1,4 @@
-package muras.util
+package muras.share.util
 
 object OneHotEncodeUtil {
 
