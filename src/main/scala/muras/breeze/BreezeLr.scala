@@ -1,16 +1,22 @@
 package muras.breeze
 
+import breeze.linalg.SparseVector
+import breeze.numerics.sigmoid
 import muras.share.TestData
+import PreprocessHelper._
 
 import scala.io.Source
 
+/**
+  * Breezeを使ってLogistic Regressionの予測を行います。
+  */
 object BreezeLr {
 
   def main(args: Array[String]): Unit = {
     // weightsとbiasをファイルから読み込む
     val weightsSource = Source.fromFile("train_model/weights")
     val weightsString = weightsSource.getLines().toList.head
-    val weightsList = weightsString.split(",").map(_.toDouble).toList
+    val weights = SparseVector(weightsString.split(",").map(_.toDouble))
     weightsSource.close()
 
     val biasSource = Source.fromFile("train_model/bias")
@@ -35,11 +41,27 @@ object BreezeLr {
     }.toList
     testDataSource.close()
 
-    // 前処理
+    // 1件ずつ予測
+    testDataList.foreach { data =>
+      // 前処理
+      val x = SparseVector.vertcat(
+        featureHashing(data.uid),
+        oneHotEncoding(data.hour, 23),
+        oneHotEncoding(data.advertiserId, 10),
+        oneHotEncoding(data.campaignId, 50),
+        oneHotEncoding(data.adId, 100),
+        oneHotEncoding(data.siteId, 100),
+        oneHotEncoding(data.c1, 100),
+        oneHotEncoding(data.c2, 100),
+        SparseVector(Array(data.n1)),
+        SparseVector(Array(data.n2))
+      )
 
+      // ロジスティック回帰で予測確率を計算
+      val probability = sigmoid(bias + weights.dot(x))
 
-    // 予測
-
+      println(probability)
+    }
   }
 
 }
