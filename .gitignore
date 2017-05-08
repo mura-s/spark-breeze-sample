@@ -18,3 +18,7 @@ project/plugins/project/
 
 # idea
 .idea/
+
+# train model
+train_model/bias
+train_model/weights

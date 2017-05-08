@@ -1,9 +1,11 @@
 package muras.spark
 
+import java.io.PrintWriter
+
 import muras.share.model.{TestData, TrainData}
 import muras.spark.PreprocessHelper._
 import org.apache.spark.ml.Pipeline
-import org.apache.spark.ml.classification.LogisticRegression
+import org.apache.spark.ml.classification.{LogisticRegression, LogisticRegressionModel}
 import org.apache.spark.ml.feature.VectorAssembler
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.{col, lit}
@@ -88,9 +90,15 @@ object SparkLr {
     val model = pipeline.fit(preprocessedTrainDs)
 
     // 訓練後のモデルをファイルに出力
-    // TODO: WIP
+    val lrModel = model.stages.last.asInstanceOf[LogisticRegressionModel]
 
+    val weightsPW = new PrintWriter("train_model/weights")
+    weightsPW.write(lrModel.coefficients.toArray.mkString(","))
+    weightsPW.close()
 
+    val biasPW = new PrintWriter("train_model/bias")
+    biasPW.write(lrModel.intercept.toString)
+    biasPW.close()
 
     /* 予測 */
 
