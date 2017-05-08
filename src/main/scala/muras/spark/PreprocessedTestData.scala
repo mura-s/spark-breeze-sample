@@ -2,11 +2,7 @@ package muras.spark
 
 import org.apache.spark.ml.linalg.Vector
 
-/**
-  * 前処理後の訓練データ
-  */
-case class PreprocessedTrainData(
-  label: Double,
+case class PreprocessedTestData(
   uid: Vector,
   hour: Vector,
   advertiserId: Vector,

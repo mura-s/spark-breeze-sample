@@ -18,4 +18,5 @@ object PreprocessHelper {
     val index = FeatureHashingUtil.indexOf(value)
     Vectors.sparse(FeatureHashingUtil.hashSize, Array(index), Array(1.0))
   }
+
 }
