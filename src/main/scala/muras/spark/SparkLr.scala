@@ -7,7 +7,8 @@ import PreprocessHelper._
 import org.apache.spark.ml.Pipeline
 import org.apache.spark.ml.classification.{LogisticRegression, LogisticRegressionModel}
 import org.apache.spark.ml.feature.VectorAssembler
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.ml.linalg.Vector
+import org.apache.spark.sql.{Row, SparkSession}
 import org.apache.spark.sql.functions.{col, lit}
 import org.apache.spark.sql.types._
 
@@ -142,7 +143,10 @@ object SparkLr {
     // 予測
     val predictedDf = model.transform(preprocessedTestDs)
 
-    predictedDf.show(10, false)
+    // 予測確率を出力
+    predictedDf.select("probability")
+      .collect()
+      .foreach { case Row(v: Vector) => println(v(1)) }
 
     spark.stop()
   }
