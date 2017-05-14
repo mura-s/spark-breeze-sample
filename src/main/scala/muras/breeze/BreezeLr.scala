@@ -43,7 +43,7 @@ object BreezeLr {
 
     // 1件ずつ予測
     testDataList.foreach { data =>
-      // 前処理
+      // 前処理 + vertcatで1つのVectorに結合
       val x = SparseVector.vertcat(
         featureHashing(data.uid),
         oneHotEncoding(data.hour, 23),
